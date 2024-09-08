@@ -1,0 +1,57 @@
+version: "3.1"
+#the domain file is a directory of everthing your assistant "knows"
+#RESPONSES = These are things the assitants can say to users
+#INTENTS = These are categories of things users say(How the users say things)
+# SLOTS = These are variables remembered over the course of a conversation
+# ENTITIES = These are pieces of information extracted from incoming text
+# FORMS and ACTIONS = These add aplication logic and extend what your assistant can do
+
+
+
+#Try start with the fewest intents possible. It's possible change ou add intents at any time
+intents:
+  - greet
+  - goodbye
+  - affirm
+  - deny
+  - mood_great
+  - mood_unhappy
+  - bot_challenge
+  - search_venues
+
+responses:
+
+#When this response (utter_greet) is triggered, one og the responses will be randomly selected.
+  utter_greet:
+  - text: "Hey! How are you?"
+  - text: "Hey, how is your day?"
+  - text: "Hey, you look so great! How old are you?"
+  - text: "Today is a beautiful day. How are you?"
+    buttons:
+    - title: "great"
+      payload: "/mood_great"
+    - title: "sad"
+      payload: "/mood_unhappy"
+
+  utter_cheer_up:
+  - text: "Here is something to cheer you up:"
+    image: "https://m.media-amazon.com/images/I/515ROxgbBKL._SY1000_.jpg"
+  - text: "Eu tenho algo para te animar: "
+    image: "https://m.media-amazon.com/images/I/515ROxgbBKL._SY1000_.jpg"
+
+
+  utter_did_that_help:
+  - text: "Did that help you?"
+  - text: "Como eu posso te ajudar?"
+
+  utter_happy:
+  - text: "Great, carry on!"
+  - text: "Boaaaa!"
+
+  utter_goodbye:
+  - text: "Bye"
+  - text: "Tchau, até a proxima!"
+
+  utter_iamabot:
+  - text: "I am a bot, powered by Rasa and Antonio"
+  - text: "Eu sou um robô desenolvivdo pela Rasa e pelo Antônio. Estou aqui para lhe ajudar!"
